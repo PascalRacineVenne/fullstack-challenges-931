@@ -8,13 +8,13 @@ You'll use these heavily in your application.
 
 ## Required Features
 
-* Character count (including **and** excluding spaces)
-* Line count
-* Word count
-* Sentence count
-* Paragraph count
-* Average number of words per sentence
-* Average number of sentences per paragraph
+- Character count (including **and** excluding spaces)
+- Line count
+- Word count
+- Sentence count
+- Paragraph count
+- Average number of words per sentence
+- Average number of sentences per paragraph
 
 Implement a method `analyze` which takes a text (`String`) as an argument (text you can load from a file) and returns a result `Hash` with the following keys:
 
@@ -53,8 +53,8 @@ Let's add a few cool features to it.
 
 Line, paragraph and word count are useful statistics, but with the power of Ruby you can perform even better analysis. The only limit is your imagination!
 
-* **Percentage of "useful" words**: most written material contains words like "the", "are",.. These are called stop-words and are often ignored by computer systems whose job is to analyze and search through text, because they aren't words most people are likely to be searching for (Google is a perfect example of that).
+- **Percentage of "useful" words**: most written material contains words like "the", "are",.. These are called stop-words and are often ignored by computer systems whose job is to analyze and search through text, because they aren't words most people are likely to be searching for (Google is a perfect example of that).
 
-* **Interesting summary**: Word processors like Microsoft Word generally have summarization feature that can pick out the most meaningfull extract in a given page and produce an "at-a-glance" summary. One of the techniques to find the good extract is to pick up sentences that are of about average length and contain **nouns**. Tiny sentences are likely not to be very useful, and long sentences may be too long for a summary. To see if the sentences includes nouns you can look for words like "is" or "are" which are a good indicators ("There are x nouns", "Noun is", "Nouns are",...).
+- **Interesting summary**: Word processors like Microsoft Word generally have summarization feature that can pick out the most meaningfull extract in a given page and produce an "at-a-glance" summary. One of the techniques to find the good extract is to pick up sentences that are of about average length and contain **nouns**. Tiny sentences are likely not to be very useful, and long sentences may be too long for a summary. To see if the sentences includes nouns you can look for words like "is" or "are" which are a good indicators ("There are x nouns", "Noun is", "Nouns are",...).
 
 **Hint:** you should decide first which proportion of the original text you keep for your summary (for instance computed on the number of sentences).
