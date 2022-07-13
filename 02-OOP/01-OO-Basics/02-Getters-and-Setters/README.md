@@ -40,5 +40,5 @@ There might be a little more work to do in your `VendingMachine` class 😉
 
 ## (Advanced) Some open questions 🤔
 
-1. You may have noticed that in both scenario files, there is a `display` method. How could we refactor this code so that it may be more "object-oriented"? Doing so, how can we change our getters to expose **less** information to the external world? The concept you need to remember here is [**Encapsulation**](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)).
+1. You may have noticed that in both scenario files, there is a `display` method. How could we refactor this code so that it may be more "object-oriented"? Doing so, how can we change our getters to expose **less** information to the external world? The concept you need to remember here is [**Encapsulation**](<https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>).
 2. You used a setter to update the amount of snacks when refilling. How could we change this code to use an instance method instead of this writer? Why is it better?
