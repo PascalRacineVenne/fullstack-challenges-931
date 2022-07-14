@@ -1,7 +1,7 @@
 class Recipe
   attr_reader :name, :description, :rating, :prep_time
 
-  def initialize(attributes= {})
+  def initialize(attributes = {})
     @name = attributes[:name]
     @description = attributes[:description]
     @rating = attributes[:rating]
@@ -16,5 +16,4 @@ class Recipe
   def mark_as_done!
     @done = true
   end
-
 end

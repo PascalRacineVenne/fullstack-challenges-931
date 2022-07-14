@@ -22,7 +22,7 @@ class Controller
 
   def search
     ingredient = @view.search_for(:ingredient)
-    results = Search.new(ingredient).scrape
+    results = Search.new(ingredient).call
     @view.display(results)
     index = @view.ask_for_internet(:index)
     @cookbook.add_recipe(results[index])

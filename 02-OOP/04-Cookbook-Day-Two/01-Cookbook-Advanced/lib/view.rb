@@ -16,7 +16,7 @@ class View
 
   def display(recipes)
     recipes.each_with_index do |recipe, index|
-      done = recipe.done? ? "[x]" : "[ ]" 
+      done = recipe.done? ? "[x]" : "[ ]"
       puts "#{index + 1} #{done} - #{recipe.name}"
       puts ":: #{recipe.description}"
       puts ":: Rate :#{recipe.rating} :: Preperation time: #{recipe.prep_time}"
@@ -31,10 +31,10 @@ class View
   end
 
   def search_for(ingredient)
-    puts "What ingredient would you like a recipe for?"
+    puts "What #{ingredient} would you like a recipe for?"
     print "> "
-    ingredient = gets.chomp
-    puts "Looking for #{ingredient} recipes on the Internet..."
+    choice = gets.chomp
+    puts "Looking for #{choice} recipes on the Internet..."
     return ingredient
   end
 end
