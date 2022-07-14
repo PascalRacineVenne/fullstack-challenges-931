@@ -262,3 +262,27 @@ Let's break down what is happening here given what we learned above.
 You made it to the end!!! Hopefully you are feeling a little more comfortable with Ruby hashes now and have a couple more methods in your toolbox that you can use. If you have any questions or anything needs clarification please don't hesitate to drop a question in the comments! 
 
 If you want a quick reference for these methods I made a handy cheat sheet with just the code from each example.  ",Molly Struve,false
+shiwani295/write-a-program-to-create-a-class-count-objects-and-calculate-the-number-of-objects-that-has-been-created-in-realtime-blj,Write a program to create a class count objects and calculate the number of objects that has been created in realtime.,"Hey Everyone,
+
+so today we discuss about the how can we count the object of any class 
+There is few steps below-
+
+First we create the class count_objects
+
+Then we will initialize class variable (count=0) because we want to count the objects not methods 
+
+Then we create the constructor we create always by using init (constructor)
+
+4.Than Create an object of count_objects class with attributes
+
+5.And Finally print the total number of object available in 
+count_objects class 
+
+So you can copy that code and print in your editor which editor you use and then see the result .
+
+I hope this Answer will help you to solve your problem so if you like the article so just like and share the post 
+
+Follow for more updates and visit -https://codersvillage.com/
+
+Thank you Everyone
+Shivani Tiwari ",Shivani tiwari,false
