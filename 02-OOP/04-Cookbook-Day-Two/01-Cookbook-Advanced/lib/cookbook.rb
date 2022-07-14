@@ -17,6 +17,12 @@ class Cookbook
     save_csv
   end
 
+  def mark_as_done!(index)
+    recipe = @recipes[index]
+    recipe.mark_as_done!
+    save_csv
+  end
+
   def remove_recipe(recipe_index)
     @recipes.delete_at(recipe_index)
     save_csv
@@ -25,17 +31,17 @@ class Cookbook
   private
 
   def load_csv
-    CSV.foreach(@csv_file_path) do |row|
-      name = row[0]
-      description = row[1]
-      @recipes << Recipe.new(name, description)
+    CSV.foreach(@csv_file_path, headers: :first_row, header_converters: :symbol) do |row|
+      row[:done] = row[:done] == "true"
+      @recipes << Recipe.new(row)
     end
   end
 
   def save_csv
     CSV.open(@csv_file_path, 'wb') do |csv|
+      csv << ["name", "description", "rating", "prep_time", "done"]
       @recipes.each do |recipe|
-        csv << [recipe.name, recipe.description]
+        csv << [recipe.name, recipe.description, recipe.rating, recipe.prep_time, recipe.done?]
       end
     end
   end
