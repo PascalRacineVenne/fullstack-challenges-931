@@ -24,6 +24,11 @@ class CustomerRepository
     @elements.find { |customer| customer.id == id }
   end
 
+  def remove(index)
+    @elements.delete_at(index)
+    save_csv
+  end
+
   private
 
   def load_csv

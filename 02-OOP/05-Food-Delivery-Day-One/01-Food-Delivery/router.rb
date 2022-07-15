@@ -20,8 +20,14 @@ class Router
     header
     puts "1 - List all meals"
     puts "2 - Add a meal"
-    puts "3 - List all customers"
-    puts "4 - Add a customer"
+    puts "3 - Change a meal"
+    puts "4 - Delete a meal"
+    puts ""
+    puts "5 - List all customers"
+    puts "6 - Add a customer"
+    puts "7 - Edit customer's info"
+    puts "8 - Delete a customer"
+    puts ""
     puts "0 - Quit program and Exit"
     print "> "
   end
@@ -30,8 +36,12 @@ class Router
     case action
     when 1 then @meals_controller.list
     when 2 then @meals_controller.add
-    when 3 then @customers_controller.list
-    when 4 then @customers_controller.add
+    when 3 then @meals_controller.edit
+    when 4 then @meals_controller.destroy
+    when 5 then @customers_controller.list
+    when 6 then @customers_controller.add
+    when 7 then @customers_controller.edit
+    when 8 then @customers_controller.destroy
     when 0 then stop!
     else puts "Wrong input... Try again"
     end

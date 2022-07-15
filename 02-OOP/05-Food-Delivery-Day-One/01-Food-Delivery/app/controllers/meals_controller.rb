@@ -18,6 +18,24 @@ class MealsController
     @meal_repository.create(meal)
   end
 
+  def edit
+    list
+    index = @meals_view.ask_for(:index).to_i - 1
+    meals = @meal_repository.all
+    id = meals[index].id
+    meal = @meal_repository.find(id)
+    name = @meals_view.ask_for(:name)
+    price = @meals_view.ask_for(:price).to_i
+    meal.name = name
+    meal.price = price
+  end
+
+  def destroy
+    list
+    index = @meals_view.ask_for(:index).to_i - 1
+    @meal_repository.remove(index)
+  end
+
   private
 
   def display_meals
@@ -25,3 +43,6 @@ class MealsController
     @meals_view.display(meals)
   end
 end
+
+# As a user, I can edit an existing meal
+# As a user, I can destroy an existing meal
