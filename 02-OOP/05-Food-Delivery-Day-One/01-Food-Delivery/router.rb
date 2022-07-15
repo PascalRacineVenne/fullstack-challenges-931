@@ -54,8 +54,10 @@ class Router
   def header
     puts ""
     puts "|===================|"
+    puts "|                   |"
     puts "|  ♨(⋆‿⋆)♨  (◕‿◕✿)  |"
-    puts "|_____AT PEDROS_____|"
+    puts "|____ AT PEDROS ____|"
+    puts "|                   |"
     puts "|===================|"
     puts ""
   end

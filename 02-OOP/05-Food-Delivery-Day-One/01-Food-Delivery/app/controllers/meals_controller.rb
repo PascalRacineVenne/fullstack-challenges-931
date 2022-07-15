@@ -21,13 +21,10 @@ class MealsController
   def edit
     list
     index = @meals_view.ask_for(:index).to_i - 1
-    meals = @meal_repository.all
-    id = meals[index].id
-    meal = @meal_repository.find(id)
-    name = @meals_view.ask_for(:name)
-    price = @meals_view.ask_for(:price).to_i
-    meal.name = name
-    meal.price = price
+    meal = @meals[index]
+    meal.name = @meals_view.ask_for(:name)
+    meal.price = @meals_view.ask_for(:price).to_i
+    @meal_repository.update(meal, index)
   end
 
   def destroy
@@ -39,8 +36,8 @@ class MealsController
   private
 
   def display_meals
-    meals = @meal_repository.all
-    @meals_view.display(meals)
+    @meals = @meal_repository.all
+    @meals_view.display(@meals)
   end
 end
 

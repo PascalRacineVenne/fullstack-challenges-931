@@ -1,33 +1,34 @@
 require 'csv'
 require_relative "../models/customer"
+require_relative '../repositories/base_repository'
 
-class CustomerRepository
-  def initialize(csv_file)
-    @csv_file = csv_file
-    @elements = []
-    @next_id = 1
-    load_csv if File.exist?(@csv_file)
-  end
+class CustomerRepository < BaseRepository
+  # def initialize(csv_file)
+  #   @csv_file = csv_file
+  #   @elements = []
+  #   @next_id = 1
+  #   load_csv if File.exist?(@csv_file)
+  # end
 
-  def all
-    @elements
-  end
+  # def all
+  #   @elements
+  # end
 
-  def create(customer)
-    customer.id = @next_id
-    @elements << customer
-    @next_id += 1
-    save_csv
-  end
+  # def create(element)
+  #   element.id = @next_id
+  #   @elements << element
+  #   @next_id += 1
+  #   save_csv
+  # end
 
-  def find(id)
-    @elements.find { |customer| customer.id == id }
-  end
+  # def find(id)
+  #   @elements.find { |element| element.id == id }
+  # end
 
-  def remove(index)
-    @elements.delete_at(index)
-    save_csv
-  end
+  # def remove(index)
+  #   @elements.delete_at(index)
+  #   save_csv
+  # end
 
   private
 

@@ -21,13 +21,10 @@ class CustomersController
   def edit
     list
     index = @customers_view.ask_for(:index).to_i - 1
-    customers = @customer_repository.all
-    id = customers[index].id
-    customer = @customer_repository.find(id)
-    name = @customers_view.ask_for(:name)
-    address = @customers_view.ask_for(:address)
-    customer.name = name
-    customer.address = address
+    customer = @customers[index]
+    customer.name = @customers_view.ask_for(:name)
+    customer.address = @customers_view.ask_for(:address)
+    @customer_repository.update(customer, index)
   end
 
   def destroy
@@ -40,8 +37,8 @@ class CustomersController
   private
 
   def display_all
-    customers = @customer_repository.all
-    @customers_view.display(customers)
+    @customers = @customer_repository.all
+    @customers_view.display(@customers)
   end
 end
 
