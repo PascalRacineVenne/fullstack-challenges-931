@@ -36,6 +36,7 @@ Here are all the **user actions** of our app:
 [ ] As a rider, I list all my undelivered orders
 
 Hence, there are two new components:
+
 - **Employees**
 - **Orders**
 
@@ -54,6 +55,7 @@ All green? Good! Time to `git add`, `commit` and `push`.
 Now that we have a model representing our employees, we need a repository to store them.
 
 This repository is initialized with a CSV file path. It has a **read-only** logic since only the administrator of our app can create accounts (no need for and `add` method). The interface of this repository allows to:
+
 - Get `all_riders` from the repository
 - `find` a specific employee thanks to its id
 - `find_by_username` a specific employee thanks to their username
@@ -114,6 +116,7 @@ All green? Good! Time to `git add`, `commit` and `push`.
 Now that we have a model representing our orders, we need a repository to store them.
 
 This repository is initialized with a CSV file path. It reads/writes the orders from the CSV file and store them in memory. The interface of this repository allows to:
+
 - Create a new order
 - Get all the undelivered orders
 
@@ -141,6 +144,7 @@ All green? Good! Time to `git add`, `commit` and `push`.
 ### 2.3 - Orders controller
 
 Let's move to the controller. Here are the **user actions** we want to implement:
+
 - As a manager, I can `add` a new order
 - As a manager, I can `list_undelivered_orders`
 - As a rider, I `list_my_orders` to list all my undelivered orders
@@ -183,6 +187,7 @@ All green? Good! Time to `git add`, `commit` and `push`.
 In our app, a manager can't edit or destroy an existing order.
 
 Implement these additional user actions:
+
 - As a manager, I can edit an existing order
 - As a manager, I can destroy an existing order
 
