@@ -17,7 +17,7 @@ class Search
       name = element.search(".card__imageContainer a").first.attribute("title").value.strip
       description = element.search(".card__detailsContainer .card__summary").first.text.strip
       rating_element = element.search(".card__detailsContainer .review-star-text").first
-      rating = rating_element ? rating_element.text.strip.match(/\d\.?\d*/)[0] : nil
+      rating = rating_element ? rating_element.text.strip.match(/\d.?\d*/)[0] : nil
       recipe_url = element.search(".card__imageContainer a").first.attribute("href").value.strip
       recipe_html = URI.open(recipe_url).read
       recipe_doc = Nokogiri::HTML(recipe_html, nil, "utf-8")
@@ -30,3 +30,6 @@ class Search
     results
   end
 end
+
+# scraping_results = Search.new('chocolate').call
+# p scraping_results
