@@ -44,7 +44,7 @@ class OrdersController
   private
 
   def select_a_meal
-    meals = @meal_repository.all
+    meals = @meal_repository.all 
     @meals_view.display(meals)
     index = @meals_view.ask_for(:index).to_i - 1
     return meals[index]
