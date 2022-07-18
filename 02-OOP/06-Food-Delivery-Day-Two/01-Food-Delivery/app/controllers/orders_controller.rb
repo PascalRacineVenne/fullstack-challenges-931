@@ -44,19 +44,19 @@ class OrdersController
   private
 
   def select_a_meal
-    meals = @meal_repository.all 
+    meals = @meal_repository.all
     @meals_view.display(meals)
     index = @meals_view.ask_for(:index).to_i - 1
     return meals[index]
   end
-  
+
   def select_a_customer
     customers = @customer_repository.all
     @customers_view.display(customers)
     index = @customers_view.ask_for(:index).to_i - 1
     return customers[index]
   end
-  
+
   def select_an_employee
     employees = @employee_repository.all_riders
     @employees_view.display(employees)

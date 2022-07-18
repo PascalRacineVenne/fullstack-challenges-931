@@ -31,7 +31,7 @@ class OrderRepository
     order.deliver!
     save_csv
   end
- 
+
   private
 
   def load_csv
@@ -43,7 +43,7 @@ class OrderRepository
       row[:employee] = @employee_repository.find(row[:employee_id].to_i)
       @orders << Order.new(row)
     end
-    @next_id = @orders.empty? ? 1 : @orders.last.id + 1 
+    @next_id = @orders.empty? ? 1 : @orders.last.id + 1
   end
 
   def save_csv

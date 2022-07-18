@@ -13,7 +13,6 @@ class SessionsController
 
     if employee && employee.password == password
       return employee
-
     else
       login
     end
