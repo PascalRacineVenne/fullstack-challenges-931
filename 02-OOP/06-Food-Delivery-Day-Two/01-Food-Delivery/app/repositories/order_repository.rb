@@ -32,6 +32,11 @@ class OrderRepository
     save_csv
   end
 
+  def update(order, index)
+    @orders[index] = order
+    save_csv
+  end
+
   private
 
   def load_csv

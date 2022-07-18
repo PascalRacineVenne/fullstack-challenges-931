@@ -25,8 +25,8 @@ class OrdersController
   end
 
   def list_undelivered_orders
-    undelivered_orders = @order_repository.undelivered_orders
-    @orders_view.display(undelivered_orders)
+    @undelivered_orders = @order_repository.undelivered_orders
+    @orders_view.display(@undelivered_orders)
   end
 
   def list_my_orders(employee)
@@ -39,6 +39,16 @@ class OrdersController
     my_orders = @order_repository.my_undelivered_orders(employee)
     order = my_orders[index]
     @order_repository.mark_as_delivered(order)
+  end
+
+  def edit
+    list_undelivered_orders
+    index = @orders_view.ask_for(:index).to_i - 1
+    order = @undelivered_orders[index]
+    order.meal = select_a_meal
+    order.customer = select_a_customer
+    order.employee = select_an_employee
+    @order_repository.update(order, index)
   end
 
   private
