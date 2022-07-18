@@ -9,18 +9,20 @@ class Router
   
   def run
     # [ ] As an employee, I can log in
-    @employee = @sessions_controller.login
     while @running
-      if @employee.manager?
-        display_manager_menu
-        manager_action = gets.chomp.to_i
-        print `clear`
-        trigger_manager(manager_action)
-      elsif @employee.rider?
-        display_rider_menu
-        rider_action = gets.chomp.to_i
-        print `clear`
-        trigger_rider(rider_action)
+      @employee = @sessions_controller.login
+      while @employee
+        if @employee.manager?
+          display_manager_menu
+          manager_action = gets.chomp.to_i
+          print `clear`
+          trigger_manager(manager_action)
+        else
+          display_rider_menu
+          rider_action = gets.chomp.to_i
+          print `clear`
+          trigger_rider(rider_action)
+        end
       end
     end
   end
@@ -33,6 +35,7 @@ class Router
     display_manager_customers_action
     display_manager_orders_action
     puts "0 - Quit program and Exit"
+    puts "11 - LOGOUT"
     print "> "
   end
   
@@ -78,6 +81,7 @@ class Router
     when 9 then @orders_controller.add
     when 10 then @orders_controller.list_undelivered_orders
     when 0 then stop!
+    when 11 then logout!
     else puts "Wrong input... Try again"
     end
   end
@@ -86,6 +90,7 @@ class Router
     header
     display_riders_action
     puts "0 - Quit program and Exit"
+    puts "11 - LOG OUT"
     print "> "
   end
 
@@ -100,11 +105,17 @@ class Router
     when 1 then @orders_controller.list_my_orders(@employee)
     when 2 then @orders_controller.mark_as_delivered(@employee)
     when 0 then stop!
+    when 11 then logout!
     else puts "Wrong input... Try again"
     end
   end
 
+  def logout!
+    @employee = nil
+  end
+
   def stop!
+    logout!
     @running = false
   end
 
