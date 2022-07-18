@@ -51,6 +51,12 @@ class OrdersController
     @order_repository.update(order, index)
   end
 
+  def destroy
+    list_undelivered_orders
+    index = @orders_view.ask_for(:index).to_i - 1
+    @order_repository.remove(index)
+  end
+
   private
 
   def select_a_meal

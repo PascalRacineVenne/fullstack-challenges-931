@@ -37,6 +37,11 @@ class OrderRepository
     save_csv
   end
 
+  def remove(index)
+    @orders.delete_at(index)
+    save_csv
+  end
+
   private
 
   def load_csv

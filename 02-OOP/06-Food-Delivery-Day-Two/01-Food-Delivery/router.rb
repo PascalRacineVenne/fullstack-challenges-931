@@ -34,8 +34,8 @@ class Router
     display_manager_meals_action
     display_manager_customers_action
     display_manager_orders_action
+    puts "13 - LOGOUT"
     puts "0 - Quit program and Exit"
-    puts "12 - LOGOUT"
     print "> "
   end
 
@@ -57,6 +57,7 @@ class Router
     puts "9 - Add a new order"
     puts "10 - List all undelivered orders"
     puts "11 - Update an order"
+    puts "12 - Delete an order"
   end
 
   def trigger_manager(action)
@@ -72,7 +73,8 @@ class Router
     when 9 then @orders_controller.add
     when 10 then @orders_controller.list_undelivered_orders
     when 11 then @orders_controller.edit
-    when 12 then logout!
+    when 12 then @orders_controller.destroy
+    when 13 then logout!
     when 0 then stop!
     else puts "Wrong input... Try again"
     end
@@ -89,8 +91,8 @@ class Router
     header
     puts "1 - List all undelivered orders"
     puts "2 - Mark as delivered"
+    puts "13 - LOG OUT"
     puts "0 - Quit program and Exit"
-    puts "12 - LOG OUT"
     print "> "
   end
 
@@ -98,7 +100,7 @@ class Router
     case action
     when 1 then @orders_controller.list_my_orders(@employee)
     when 2 then @orders_controller.mark_as_delivered(@employee)
-    when 12 then logout!
+    when 13 then logout!
     when 0 then stop!
     else puts "Wrong input... Try again"
     end
