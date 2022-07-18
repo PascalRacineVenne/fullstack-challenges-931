@@ -6,7 +6,7 @@ class EmployeesView
   end
 
   def display(employees)
-    employees.each_eith_index do |employee|
+    employees.each_with_index do |employee, index|
       puts "#{index + 1}. #{employee.username} :: #{employee.role}"
     end
   end

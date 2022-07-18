@@ -1,8 +1,9 @@
 class Router
-  def initialize(meals_controller, customers_controller, sessions_controller)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @meals_controller = meals_controller
     @customers_controller = customers_controller
     @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
     @running = true
   end
   
@@ -30,6 +31,7 @@ class Router
     header
     display_manager_meals_action
     display_manager_customers_action
+    display_manager_orders_action
     puts "0 - Quit program and Exit"
     print "> "
   end
@@ -57,6 +59,12 @@ class Router
     puts ""
   end
 
+  def display_manager_orders_action
+    puts "9 - Add a new order"
+    puts "10 - List all undelivered orders"
+    puts ""
+  end
+
   def trigger_manager(action)
     case action
     when 1 then @meals_controller.list
@@ -67,6 +75,8 @@ class Router
     when 6 then @customers_controller.add
     when 7 then @customers_controller.edit
     when 8 then @customers_controller.destroy
+    when 9 then @orders_controller.add
+    when 10 then @orders_controller.list_undelivered_orders
     when 0 then stop!
     else puts "Wrong input... Try again"
     end
@@ -87,11 +97,8 @@ class Router
 
   def trigger_rider(action)
     case action
-    # when 1 then @meals_controller.list
-    # when 2 then @meals_controller.add
-    # [ ] As a rider, I can mark one of my orders as delivered
-    # [ ] As a rider, I list all my undelivered orders
- 
+    when 1 then @orders_controller.list_my_orders(@employee)
+    when 2 then @orders_controller.mark_as_delivered(@employee)
     when 0 then stop!
     else puts "Wrong input... Try again"
     end
